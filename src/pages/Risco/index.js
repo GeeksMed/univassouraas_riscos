@@ -3,7 +3,7 @@ import React from 'react';
 import Header from '../../components/Header';
 import {Button, Container} from "react-bootstrap";
 
-import AccordionRisco from "../../components/AccordionRisco";
+import AccordionRisco from '../../components/AccordionRisco';
 
 export default function Risco() {
     return (
