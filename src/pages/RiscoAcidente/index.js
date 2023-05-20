@@ -5,11 +5,11 @@ import {Button, Container} from "react-bootstrap";
 
 import AccordionRisco from '../../components/AccordionRisco';
 
-export default function Risco() {
+export default function RiscoAcidente() {
     return (
         <>
             <Header/>
-            <h2 className="text-h2 text-center">Riscos [Físicos]</h2>
+            <h2 className="text-h2 text-center mt-2">Riscos de Acidentes</h2>
             <Container className="justify-content-center justify-items-center">
                 <div>
                     <p className="blockquote text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
