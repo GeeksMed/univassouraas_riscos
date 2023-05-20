@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from '../../components/Header';
+import Header_Back from '../../components/Header_Back';
 import {Button, Container} from "react-bootstrap";
 
 import AccordionRisco from '../../components/AccordionRisco';
@@ -8,7 +8,7 @@ import AccordionRisco from '../../components/AccordionRisco';
 export default function Risco() {
     return (
         <>
-            <Header/>
+            <Header_Back/>
             <h2 className="text-h2 text-center">Riscos [Físicos]</h2>
             <Container className="justify-content-center justify-items-center">
                 <div>
@@ -19,8 +19,8 @@ export default function Risco() {
 
                 <AccordionRisco />
 
-                <div className="mt-2">
-                    <Button href="#" variant="danger">Reportar Risco</Button>
+                <div className="mt-2 d-flex">
+                    <Button href="#" variant="danger" className="">Reportar Risco</Button>
                 </div>
             </Container>
         </>
