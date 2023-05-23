@@ -10,7 +10,7 @@ export default function Risco() {
     return (
         <>
             <Header/>
-            <Container className="d-flex justify-content-end align-items-center m-0 p-0" sticky="top">
+            <Container className="d-flex justify-content-end align-items-center p-0" sticky="top">
                 <Image alt="" src={imagemanuncio} width="100%" height="350em" style={{zIndex:0, position:"relative"}} className="m-0"/>
                 <div className="d-flex flex-column justify-content-between text-break mx-5 p-5 bg-light opacity-75 rounded-4 border border-5 border-danger" style={{position:"absolute", maxWidth: 20+"em", height: 20+"em"}}>
                     <p className="">

@@ -16,7 +16,7 @@ export default function Header() {
                             className="p-0 m-0"
                         />
                     </Navbar.Brand>
-                    <Navbar.Text className="px-2 fs-3" style={{color: "#000"}}>UniVassouras Segura</Navbar.Text>
+                    <Navbar.Text className="px-2 fs-3" style={{color: "#000"}}>Univassouras Segura</Navbar.Text>
                 </Container>
             </Navbar>
         </>
