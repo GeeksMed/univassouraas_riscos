@@ -10,3 +10,11 @@
 body {
   font-family: 'Roboto Condensed';
 }
+
+:root {
+  --riscoFisico: #2FA84F;
+  --riscoQuimico: #DF2D2D;
+  --riscoBiologico: #73432A;
+  --riscoErgonomico: #F3AA18;
+  --riscoAcidente: #1A5AFD;
+}
