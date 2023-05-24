@@ -1,20 +1,20 @@
 import React from 'react';
 
-import Header_Back from '../../components/Header_Back';
-import {Button, Container} from "react-bootstrap";
+import HeaderBack from '../../components/HeaderBack';
+import ReportarRisco from '../../components/ReportarRisco';
+
+import {Container} from "react-bootstrap";
 
 import Accordion from "react-bootstrap/Accordion";
 
 export default function RiscoFisico() {
     return (
         <>
-            <Header_Back/>
+            <HeaderBack/>
             <h2 className="text-h2 text-center mt-2" style={{color: 'var(--riscoFisico)'}}>Riscos Físicos</h2>
             <Container className="justify-content-center justify-items-center">
                 <div>
-                    <p className="blockquote text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla id risus vel metus aliquet pharetra. Class aptent taciti sociosqu ad litora torquent.
-                    </p>
+                    <p className="blockquote text-center">Referem-se a condições ou elementos presentes no ambiente que podem causar danos físicos.</p>
                 </div>
 
                 <Accordion defaultActiveKey="0" className="pb-4">
@@ -58,9 +58,7 @@ export default function RiscoFisico() {
                     </Accordion.Item>
                 </Accordion>
 
-                <div className="mt-2 d-flex">
-                    <Button href="#" variant="danger" className="">Reportar Risco</Button>
-                </div>
+                <ReportarRisco/>
             </Container>
         </>
     );

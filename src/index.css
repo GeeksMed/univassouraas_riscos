@@ -18,3 +18,21 @@ body {
   --riscoErgonomico: #F3AA18;
   --riscoAcidente: #1A5AFD;
 }
+
+.x-accordion-group,
+.x-accordion-heading {
+    border-radius: 4px;
+}
+.x-accordion-inner {
+    border-radius: 0 0 4px 4px;
+}
+
+.a_acidente button{
+  color: white;
+  background-color: var(--riscoAcidente);
+}
+
+.reportar{
+  background-color: #6D1D20 !important;
+  border-color: #6D1D20 !important;
+}

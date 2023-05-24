@@ -4,7 +4,7 @@ import logouni from '../../img/logo-no-background_quad.png';
 import bback from '../../img/caret-left-fill.svg';
 import {Container, Image, Navbar} from "react-bootstrap";
 
-export default function Header_Back() {
+export default function HeaderBack() {
     return (
         <>
             <Navbar bg="light" sticky="top" onClick={event => window.location.href='/'} >

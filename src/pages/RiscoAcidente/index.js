@@ -1,25 +1,24 @@
 import React from 'react';
 
-import {Button, Container} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
-import Header_Back from "../../components/Header_Back";
+import HeaderBack from "../../components/HeaderBack";
 import Accordion from "react-bootstrap/Accordion";
+import ReportarRisco from '../../components/ReportarRisco';
 
 export default function RiscoAcidente() {
     return (
         <>
-            <Header_Back/>
-            <h2 className="text-h2 text-center mt-2" style={{color: 'var(--riscoAcidente)'}}>Riscos de Acidentes</h2>
+            <HeaderBack/>
+            <h2 className="text-h1 text-center mt-2">Riscos de Acidentes</h2>
             <Container className="justify-content-center justify-items-center">
                 <div>
-                    <p className="blockquote text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla id risus vel metus aliquet pharetra. Class aptent taciti sociosqu ad litora torquent.
-                    </p>
+                    <p className="blockquote text-center">Envolvem situações que podem levar a acidentes de trabalho, causando lesões físicas.</p>
                 </div>
 
-                <Accordion defaultActiveKey="0" className="pb-4">
+                <Accordion className="pb-4">
                     <Accordion.Item eventKey="0">
-                        <Accordion.Header>
+                        <Accordion.Header className="a_acidente">
                             Risco #1
                         </Accordion.Header>
                         <Accordion.Body>
@@ -29,7 +28,9 @@ export default function RiscoAcidente() {
                         </Accordion.Body>
                     </Accordion.Item>
                     <Accordion.Item eventKey="1">
-                        <Accordion.Header>Risco #2</Accordion.Header>
+                        <Accordion.Header  className="a_acidente">
+                            Risco #2
+                        </Accordion.Header>
                         <Accordion.Body>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                             eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -37,9 +38,7 @@ export default function RiscoAcidente() {
                     </Accordion.Item>
                 </Accordion>
 
-                <div className="mt-2">
-                    <Button href="#" variant="danger">Reportar Risco</Button>
-                </div>
+                <ReportarRisco/>
             </Container>
         </>
     );

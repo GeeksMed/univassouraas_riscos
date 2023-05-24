@@ -1,20 +1,19 @@
 import React from 'react';
 
-import {Button, Container} from "react-bootstrap";
+import {Container} from "react-bootstrap";
 
-import Header_Back from "../../components/Header_Back";
+import HeaderBack from "../../components/HeaderBack";
 import Accordion from "react-bootstrap/Accordion";
+import ReportarRisco from '../../components/ReportarRisco';
 
 export default function RiscoErgonomico() {
     return (
         <>
-            <Header_Back/>
+            <HeaderBack/>
             <h2 className="text-h2 text-center mt-2" style={{color: 'var(--riscoErgonomico)'}}>Riscos Ergonômicos</h2>
             <Container className="justify-content-center justify-items-center">
                 <div>
-                    <p className="blockquote text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Nulla id risus vel metus aliquet pharetra. Class aptent taciti sociosqu ad litora torquent.
-                    </p>
+                    <p className="blockquote text-center">Associados à forma como as tarefas são projetadas e realizadas, considerando a interação entre as pessoas, os equipamentos e o ambiente.</p>
                 </div>
 
                 <Accordion defaultActiveKey="0" className="pb-4">
@@ -37,9 +36,7 @@ export default function RiscoErgonomico() {
                     </Accordion.Item>
                 </Accordion>
 
-                <div className="mt-2">
-                    <Button href="#" variant="danger">Reportar Risco</Button>
-                </div>
+                <ReportarRisco/>
             </Container>
         </>
     );

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import {Button, Container, Navbar, Image} from "react-bootstrap";
+import {Button, Container, Image} from "react-bootstrap";
 
 import Header from '../../components/Header';
+import ReportarRisco from '../../components/ReportarRisco';
 
 import imagemanuncio from '../../img/rampa-de-um-edificio.jpg';
 
@@ -16,7 +17,7 @@ export default function Risco() {
                     <p className="">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut semper sem congue ex vulputate, non lacinia purus dictum.
                     </p>
-                    <Button className="" style={{backgroundColor: "#6D1D20", borderColor: "#6D1D20"}}>Reportar Risco</Button>
+                    <ReportarRisco/>
                 </div>
             </Container>
 
