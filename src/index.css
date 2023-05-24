@@ -27,9 +27,46 @@ body {
     border-radius: 0 0 4px 4px;
 }
 
-.a_acidente button{
-  color: white;
+.fisico .accordion-button{
+  background-color: var(--riscoFisico);
+}
+.fisico .accordion-button:not(.collapsed){
+  background-color: var(--riscoFisico);
+}
+
+.quimico .accordion-button{
+  background-color: var(--riscoQuimico);
+}
+.quimico .accordion-button:not(.collapsed){
+  background-color: var(--riscoQuimico);
+}
+
+.biologico .accordion-button{
+  background-color: var(--riscoBiologico);
+}
+.biologico .accordion-button:not(.collapsed){
+  background-color: var(--riscoBiologico);
+}
+
+.ergonomico .accordion-button{
+  background-color: var(--riscoErgonomico);
+}
+.ergonomico .accordion-button:not(.collapsed){
+  background-color: var(--riscoErgonomico);
+}
+
+.acidente .accordion-button{
   background-color: var(--riscoAcidente);
+}
+.acidente .accordion-button:not(.collapsed){
+  background-color: var(--riscoAcidente);
+}
+
+.accordion-button{
+  color: white !important;
+}
+.accordion-button:not(.collapsed){
+  color: white !important;
 }
 
 .reportar{

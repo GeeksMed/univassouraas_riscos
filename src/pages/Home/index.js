@@ -7,6 +7,8 @@ import ReportarRisco from '../../components/ReportarRisco';
 
 import imagemanuncio from '../../img/rampa-de-um-edificio.jpg';
 
+import {Link} from "react-router-dom";
+
 export default function Risco() {
     return (
         <>
