@@ -52,7 +52,7 @@ export default function FormRisco() {
                 <h1 className="text-center fw-normal my-3 display-5">
                     Reportar Risco
                 </h1>
-                <Form className="border rounded bg-light border-danger" style={{width: "25rem"}}>
+                <Form className="border rounded bg-light border-danger" style={{width: "22rem"}}>
                     <Form.Group className="form-group mx-1 mt-3">
                         <Form.Label className="fs-4 m-0">Ambiente: </Form.Label>
                         <Form.Control type='text' placeholder='....' value={ambiente} onChange={(e) => setAmbiente(e.target.value)}/>
