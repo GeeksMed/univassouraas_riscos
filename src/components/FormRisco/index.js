@@ -12,13 +12,13 @@ export default function FormRisco() {
 
     useEffect(() => {
         fetchGrupoRisco();
+        setTipoRisco('1')
     }, []);
     const fetchGrupoRisco = async () => {
         try {
             const response = await fetch(`http://localhost:3000/riscos/`);
             const riscosData = await response.json();
             setGrupoRisco(riscosData);
-            console.log(riscosData)
         } catch (error) {
             console.error(error);
         }
@@ -34,13 +34,19 @@ export default function FormRisco() {
         console.log(postData);
 
         try {
-            await fetch(`${baseURL}`, {
+            const response = await fetch(`${baseURL}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(postData),
+                
             });
+            if(response.status == 201) {
+                window.location.href = "http://localhost:3001/reportar_risco/sucesso";
+            }else{
+                window.location.href = "http://localhost:3001/reportar_risco/falha";
+            }
         } catch (err) {
             console.log(err);
         }
@@ -61,7 +67,7 @@ export default function FormRisco() {
                         <Form.Label className="fs-4 m-0">Tipo de Risco: </Form.Label>
                         <Form.Select className="form-control" onChange={(e) => setTipoRisco(e.target.value)}>
                         {grupoRisco?.map((risco, index) => (
-                            <option value={risco.id}>{risco.nome}</option>
+                            <option value={risco.id} key={risco.id}>{risco.nome}</option>
                         ))}
                         </Form.Select>
                     </Form.Group>
