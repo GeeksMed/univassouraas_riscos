@@ -15,7 +15,7 @@ export default function FormRisco() {
     }, []);
     const fetchGrupoRisco = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/grupos-risco/`);
+            const response = await fetch(`http://localhost:3000/riscos/`);
             const riscosData = await response.json();
             setGrupoRisco(riscosData);
             console.log(riscosData)
