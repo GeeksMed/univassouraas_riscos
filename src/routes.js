@@ -6,6 +6,7 @@ import GrupoRisco from './components/GrupoRisco';
 import FormPage from './pages/Form';
 import SuccessPage from './components/StatusPage/success';
 import FailPage from './components/StatusPage/fail';
+import AdminPage from './pages/Admin'
 
 function Rotas() {
     return (
@@ -20,6 +21,7 @@ function Rotas() {
                 <Route path="/reportar_risco" element={<FormPage />}/>
                 <Route path="/reportar_risco/sucesso" element={<SuccessPage />}/>
                 <Route path="/reportar_risco/falha" element={<FailPage />}/>
+                <Route path="/admin/riscos" element={<AdminPage />}/>
             </Routes>
         </BrowserRouter>
     );
