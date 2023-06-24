@@ -21,11 +21,13 @@ export default function ChamadosList() {
         fetchChamadosAbertos();
     }, []);
 
+
+
     const fetchChamadosAbertos = async () => {
         try {
             const response = await fetch(`http://localhost:3000/chamados/`);
             const chamadosData = await response.json();
-            setChamadosAbertos(chamadosData);
+            setChamadosAbertos(chamadosData.filter(chamado =>(chamado.dataExclusao == null)));
             console.log(chamadosData);
         } catch (error) {
             console.error(error);
@@ -45,7 +47,9 @@ export default function ChamadosList() {
         const postData = {
             id: modalContext.id,
             tratativa: tratativa,
+            dataExclusao: new Date()
         };
+        console.log(postData)
         try {
             const response = await fetch(`${baseURL}${modalContext.id}`, {
                 method: "PATCH",
@@ -82,7 +86,7 @@ export default function ChamadosList() {
                     <tbody>
                         {chamadosAbertos?.map((chamado, index) => (
                             <tr className="bg-white">
-                                <td className="py-3" key={chamado.id}><a href="#" className="px-2">{chamado.id}</a></td>
+                                <td className="py-3 fw-bold" key={chamado.id} style={{color: '#6D1D20'}}> {chamado.id}</td>
                                 <td className="py-3" >{chamado.dataCriacao}</td>
                                 <td className="py-3" >{chamado.ambiente}</td>
                                 <td className="py-3" >{chamado.riscoId}</td>
@@ -108,7 +112,7 @@ export default function ChamadosList() {
                         </Modal.Body>
 
                         <Modal.Footer>
-                            <Button variant="secondary">Close</Button>
+                            <Button variant="secondary" onClick={handleModalClose}>Close</Button>
                             <Button className="reportar bg-reportar" onClick={postData}>Concluir</Button>
                         </Modal.Footer>
                 </Modal.Dialog>
