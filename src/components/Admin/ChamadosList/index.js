@@ -21,6 +21,8 @@ export default function ChamadosList() {
         fetchChamadosAbertos();
     }, []);
 
+
+
     const fetchChamadosAbertos = async () => {
         try {
             const response = await fetch(`http://localhost:3000/chamados/`);
@@ -45,7 +47,9 @@ export default function ChamadosList() {
         const postData = {
             id: modalContext.id,
             tratativa: tratativa,
+            dataExclusao: new Date()
         };
+        console.log(postData)
         try {
             const response = await fetch(`${baseURL}${modalContext.id}`, {
                 method: "PATCH",
@@ -100,17 +104,15 @@ export default function ChamadosList() {
                             <Modal.Title>Chamado numero:{modalContext.riscoId}</Modal.Title>
                         </Modal.Header>
 
-                        <Modal.Body>
-                            
-                        <Form.Group className="form-group mx-1 my-2">
-                            <Form.Label className="fs-4 m-0">Tratativa: </Form.Label>
-                            <Form.Control className="text-start" as="textarea" placeholder='....' rows="4" style={{resize: "none"}} value={tratativa} onChange={(e) => setTratativa(e.target.value)} />
-                        </Form.Group>
-
+                        <Modal.Body>  
+                            <Form.Group className="form-group mx-1 my-2">
+                                <Form.Label className="fs-4 m-0">Tratativa: </Form.Label>
+                                <Form.Control className="text-start" as="textarea" placeholder='....' rows="4" style={{resize: "none"}} value={tratativa} onChange={(e) => setTratativa(e.target.value)} />
+                            </Form.Group>
                         </Modal.Body>
 
                         <Modal.Footer>
-                            <Button variant="secondary">Close</Button>
+                            <Button variant="secondary" onClick={handleModalClose}>Close</Button>
                             <Button className="reportar" onClick={postData}>Concluir</Button>
                         </Modal.Footer>
                 </Modal.Dialog>
