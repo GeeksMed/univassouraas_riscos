@@ -86,26 +86,26 @@ export default function ChamadosList() {
                     <tbody>
                         {chamadosAbertos?.map((chamado, index) => (
                             <tr className="bg-white">
-                                <td key={chamado.id}><a href="#" className="px-2">{chamado.id}</a></td>
-                                <td>{chamado.dataCriacao}</td>
-                                <td>{chamado.ambiente}</td>
-                                <td>{chamado.riscoId}</td>
-                                <td>{chamado.riscoId}</td>
-                                <td>N sei</td>
-                                <td><Button className="reportar" onClick={(e)=>{show_modal(chamado)}}>Encerrar chamado</Button></td>
+                                <td className="py-3" key={chamado.id}><a href="#" className="px-2">{chamado.id}</a></td>
+                                <td className="py-3" >{chamado.dataCriacao}</td>
+                                <td className="py-3" >{chamado.ambiente}</td>
+                                <td className="py-3" >{chamado.riscoId}</td>
+                                <td className="py-3" >{chamado.riscoId}</td>
+                                <td className="py-3" >N sei</td>
+                                <td className="d-flex justify-content-end"><Button className="reportar bg-reportar" onClick={(e)=>{show_modal(chamado)}}>Encerrar chamado</Button></td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
             <Modal show={showModal} onHide={handleModalClose}>
-                <Modal.Dialog>
+                <Modal.Dialog style={{width: "100%", height: "100%", margin: "0"}}>
                         <Modal.Header closeButton>
-                            <Modal.Title>Chamado numero:{modalContext.riscoId}</Modal.Title>
+                            <Modal.Title className="fs-4">Chamado número:<span className="px-2 fs-4">{modalContext.riscoId}</span></Modal.Title>
                         </Modal.Header>
 
-                        <Modal.Body>  
-                            <Form.Group className="form-group mx-1 my-2">
+                        <Modal.Body className="mx-2 mb-2 p-0">
+                            <Form.Group className="form-group mx-1 my-1">
                                 <Form.Label className="fs-4 m-0">Tratativa: </Form.Label>
                                 <Form.Control className="text-start" as="textarea" placeholder='....' rows="4" style={{resize: "none"}} value={tratativa} onChange={(e) => setTratativa(e.target.value)} />
                             </Form.Group>
@@ -113,7 +113,7 @@ export default function ChamadosList() {
 
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleModalClose}>Close</Button>
-                            <Button className="reportar" onClick={postData}>Concluir</Button>
+                            <Button className="reportar bg-reportar" onClick={postData}>Concluir</Button>
                         </Modal.Footer>
                 </Modal.Dialog>
            </Modal>
