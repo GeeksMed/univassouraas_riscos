@@ -8,7 +8,7 @@ export default function AdminPage() {
     
 
     return (
-        <div className="d-flex justify-items-start justify-content-start">
+        <div className="d-flex justify-items-start justify-content-start" style={{height: "100%"}}>
             <SideBar/>
             <ChamadosList />
         </div>
