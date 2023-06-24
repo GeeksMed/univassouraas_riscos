@@ -21,11 +21,11 @@ export default function ChamadosList() {
     };
 
     return ( 
-        <div>
-            <div>
+        <div className="d-flex flex-column m-5" style={{width: "-webkit-fill-available"}}>
+            <div className="fs-3 mb-3">
                 Novos Chamados:
             </div>
-            <div>
+            <div className="bg-light p-2" style={{width: "-webkit-fill-available", height: "100%"}}>
                 <table className='table'>
                     <thead>
                         <tr>
@@ -39,8 +39,8 @@ export default function ChamadosList() {
                     </thead>
                     <tbody>
                         {chamadosAbertos?.map((chamado, index) => (
-                            <tr>
-                                <td key={chamado.id}>{chamado.id}</td>
+                            <tr className="bg-white">
+                                <td key={chamado.id}><a href="#" className="px-2">{chamado.id}</a></td>
                                 <td>{chamado.dataCriacao}</td>
                                 <td>{chamado.ambiente}</td>
                                 <td>{chamado.riscoId}</td>
