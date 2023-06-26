@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 export default function ChamadosList() {
     const baseURL = "http://localhost:3000/chamados/"
     const [chamadosAbertos, setChamadosAbertos] = useState([])
+    const [tipoRiscos, setTipoRiscos] = useState([])
+    const [grupoRiscos, setGrupoRiscos] = useState([])
     const [showModal, setShowModal] = useState(false);
     const [modalContext, setModalContext] = useState({
         "id": 0,
@@ -19,8 +21,9 @@ export default function ChamadosList() {
 
     useEffect(() => {
         fetchChamadosAbertos();
+        fetchTipoRiscos();
+        fetchGrupoRiscos();
     }, []);
-
 
 
     const fetchChamadosAbertos = async () => {
@@ -28,11 +31,32 @@ export default function ChamadosList() {
             const response = await fetch(`http://localhost:3000/chamados/`);
             const chamadosData = await response.json();
             setChamadosAbertos(chamadosData.filter(chamado =>(chamado.dataExclusao == null)));
-            console.log(chamadosData);
         } catch (error) {
             console.error(error);
         }
     };
+
+    const fetchTipoRiscos = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/riscos/`);
+            const tipoRiscos = await response.json();
+            setTipoRiscos(tipoRiscos)
+        } catch (error) {
+            console.error(error);
+        }
+        
+    }
+
+    const fetchGrupoRiscos = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/grupos-risco/`);
+            const grupoRiscos = await response.json();
+            setGrupoRiscos(grupoRiscos)
+        } catch (error) {
+            console.error(error);
+        }
+        
+    }
 
     const show_modal = async (chamado) => {
         try {
@@ -64,6 +88,33 @@ export default function ChamadosList() {
             console.log(err);
         }
     }
+    function dataFormatada(dataISO) {
+        const data = new Date(dataISO);
+        const dia = String(data.getDate()).padStart(2, '0');
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const ano = String(data.getFullYear()).slice(-2);
+        return `${dia}/${mes}/${ano}`;
+      }
+    
+    function prazoDataFormatada(dataISO) {
+        const data = new Date(dataISO);
+        data.setDate(data.getDate() + 15)
+        const dia = String(data.getDate()).padStart(2, '0');
+        const mes = String(data.getMonth() + 1).padStart(2, '0');
+        const ano = String(data.getFullYear()).slice(-2);
+        return `${dia}/${mes}/${ano}`;
+      }
+    
+    function riscoFormatado(riscoId) {
+        const risco = tipoRiscos.filter(risco => risco.id === riscoId)[0]
+        const grupoRisco = grupoRiscos.filter(grupo => grupo.id === risco.grupoRiscoId)[0]
+        return grupoRisco?.nome
+    }
+
+    function TipoRiscoFormatado(riscoId) {
+        const risco = tipoRiscos.filter(risco => risco.id === riscoId)[0]
+        return risco?.nome
+    }
 
     return ( 
         <div className="d-flex flex-column m-5" style={{width: "-webkit-fill-available"}}>
@@ -87,11 +138,11 @@ export default function ChamadosList() {
                         {chamadosAbertos?.map((chamado, index) => (
                             <tr className="bg-white">
                                 <td className="py-3 fw-bold" key={chamado.id} style={{color: '#6D1D20'}}> {chamado.id}</td>
-                                <td className="py-3" >{chamado.dataCriacao}</td>
+                                <td className="py-3" >{dataFormatada(chamado.dataCriacao)}</td>
                                 <td className="py-3" >{chamado.ambiente}</td>
-                                <td className="py-3" >{chamado.riscoId}</td>
-                                <td className="py-3" >{chamado.riscoId}</td>
-                                <td className="py-3" >N sei</td>
+                                <td className="py-3" >{riscoFormatado(chamado.riscoId)}</td>
+                                <td className="py-3" >{TipoRiscoFormatado(chamado.riscoId)}</td>
+                                <td className="py-3" >{prazoDataFormatada(chamado.dataCriacao)}</td>
                                 <td className="d-flex justify-content-end"><Button className="reportar bg-reportar" onClick={(e)=>{show_modal(chamado)}}>Encerrar chamado</Button></td>
                             </tr>
                         ))}
