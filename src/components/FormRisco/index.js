@@ -75,6 +75,10 @@ export default function FormRisco() {
                         <Form.Label className="fs-4 m-0">Observações: </Form.Label>
                         <Form.Control className="text-start" as="textarea" placeholder='....' rows="4" style={{resize: "none"}} value={observacao} onChange={(e) => setObservacao(e.target.value)} />
                     </Form.Group>
+                    <Form.Group controlId="formFile" className="form-group mx-1 my-2">
+                        <Form.Label className="fs-4 m-0">Foto do Risco:</Form.Label>
+                        <Form.Control className="text-start" type="file" accept="image/*" />
+                    </Form.Group>
                     <div className="d-flex my-3 justify-content-center">
                         <Button className="reportar bg-reportar" onClick={postData}>Reportar Risco</Button>
                     </div>

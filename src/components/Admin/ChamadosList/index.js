@@ -74,13 +74,13 @@ export default function ChamadosList() {
                 <table className='table'>
                     <thead>
                         <tr>
-                            <th>N° do Chamado</th>
-                            <th>Data</th>
-                            <th>Local</th>
-                            <th>Grupo de Risco</th>
-                            <th>Tipo de Risco</th>
-                            <th>Prazo de atendimento</th>
-                            <th></th>
+                            <th style={{width: '9%'}}>N° do Chamado</th>
+                            <th style={{width: '10%'}}>Data</th>
+                            <th style={{width: '15%'}}>Local</th>
+                            <th style={{width: '9%'}}>Grupo de Risco</th>
+                            <th style={{width: '9%'}}>Tipo de Risco</th>
+                            <th style={{width: '12%'}}>Prazo de atendimento</th>
+                            <th style={{width: '11%'}}></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -92,7 +92,7 @@ export default function ChamadosList() {
                                 <td className="py-3" >{chamado.riscoId}</td>
                                 <td className="py-3" >{chamado.riscoId}</td>
                                 <td className="py-3" >N sei</td>
-                                <td className="d-flex justify-content-end"><Button className="reportar bg-reportar" onClick={(e)=>{show_modal(chamado)}}>Encerrar chamado</Button></td>
+                                <td className=""><Button className="reportar bg-reportar" onClick={(e)=>{show_modal(chamado)}}>Encerrar chamado</Button></td>
                             </tr>
                         ))}
                     </tbody>
